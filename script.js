@@ -79,67 +79,14 @@ const displayMovements = function (movements) {
 };
 displayMovements(account1.movements);
 
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-// LECTURES
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
 
-// const currencies = new Map([
-//   ['USD', 'United States dollar'],
-//   ['EUR', 'Euro'],
-//   ['GBP', 'Pound sterling'],
-// ]);
-
-// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-
-/////////////////////////////////////////////////
-
-let arr = ['a', 'b', 'c', 'd', 'e'];
-// const arr2 = arr.slice(0, 1);
-// console.log(arr.slice(0, 2));
-// console.log(arr2);
-// console.log(arr.slice(-2, arr.length));
-// console.log(...arr.slice(0, 3));
-
-// console.log(arr.entries());
-// console.log(arr);
-
-console.log(arr.at(-1));
-
-let x = 'Robert'.at(0);
-console.log(x);
-
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-
-// for (const movement of movements) {
-//   if (movement <= 0) {
-//     console.log(`Z Twojego konta odjęto ${Math.abs(movement)} zł`);
-//   } else {
-//     console.log(`Twojego konto zasiliło  ${movement} zł`);
-//   }
-// }
-
-movements.forEach(function (movement, i, arr) {
-  if (movement <= 0) {
-    console.log(`Z Twojego konta odjęto ${Math.abs(movement)} zł  ${arr}`);
-  } else {
-    console.log(`Twojego konto zasiliło  ${movement} zł`);
-  }
-});
-
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
-
-// currencies.forEach(function (value, key, map) {
-//   console.log();
-// });
-
-// const currenciesUnique = new Set(['USD', 'EUR', 'GBP', 'USD', 'EUR']);
-
-// currenciesUnique.forEach(function (value, key, set) {
-//   console.log(set);
-// });
-
-console.log('123');
+createUsernames(accounts);
